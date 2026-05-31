@@ -1,9 +1,9 @@
-mkdir -p /kaniko/.dockerconfig && ln -s /kaniko/.docker/.dockerconfigjson /kaniko/.dockerconfig/config.json
-IMAGE_ID=$1 && \
-IMAGE_TAG=$2 && \
-export DOCKER_CONFIG=/kaniko/.dockerconfig && \
+mkdir -p /kaniko/.docker
+cp /kaniko/.docker/.dockerconfigjson /kaniko/.docker/config.json || true
+export DOCKER_CONFIG=/kaniko/.docker
 /kaniko/executor \
   --context $(pwd) \
   --dockerfile $(pwd)/Dockerfile \
-  --destination $IMAGE_ID:$IMAGE_TAG \
+  --destination $1:$2 \
   --force
+  
