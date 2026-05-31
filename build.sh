@@ -1,6 +1,6 @@
-mkdir -p /kaniko/.docker
-cp /kaniko/.docker/.dockerconfigjson /kaniko/.docker/config.json || true
-export DOCKER_CONFIG=/kaniko/.docker
+mkdir -p /tmp/kaniko-config
+cp /kaniko/.docker/.dockerconfigjson /tmp/kaniko-config/config.json
+export DOCKER_CONFIG=/tmp/kaniko-config
 /kaniko/executor \
   --context $(pwd) \
   --dockerfile $(pwd)/Dockerfile \
