@@ -6,4 +6,3 @@ export DOCKER_CONFIG=/kaniko/.docker
   --dockerfile $(pwd)/Dockerfile \
   --destination $1:$2 \
   --force
-  
